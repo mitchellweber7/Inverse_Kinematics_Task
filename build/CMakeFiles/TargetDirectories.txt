@@ -1,0 +1,4 @@
+/home/mitchell/Documents/Inverse_Kinematics_Task/build/CMakeFiles/rebuild_cache.dir
+/home/mitchell/Documents/Inverse_Kinematics_Task/build/CMakeFiles/edit_cache.dir
+/home/mitchell/Documents/Inverse_Kinematics_Task/build/CMakeFiles/user.dir
+/home/mitchell/Documents/Inverse_Kinematics_Task/build/CMakeFiles/ar_ik.dir
