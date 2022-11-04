@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/ar_ik.dir/ar_ik_task.cpp.o  -o ar_ik 

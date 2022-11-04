@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/user.dir/user.cpp.o CMakeFiles/user.dir/ar_ik_api.cpp.o  -o user  -lpython3.8 
