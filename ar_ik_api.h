@@ -12,12 +12,15 @@ class ar_ik_api
 private:
     trafo2d_t goal;
     std::vector<double> error_vec;
+    double solve_time;
 public:
     ar_ik_api() {};
     void solve(trafo2d_t);
     trafo2d_t forward_kinematics(const vector_t& q_start);
     vector_t inverse_kinematics(const vector_t& q_start, const trafo2d_t& goal);
     void stats();
+    void graph_errors();
+    double time_taken();
 };
 
 

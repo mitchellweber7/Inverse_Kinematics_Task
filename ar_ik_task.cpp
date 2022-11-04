@@ -43,6 +43,8 @@ struct IkFunctor : Functor<double>
     IkFunctor(vector_t goal): Functor<double>(3, 3) {this->goal = goal;}
     int operator()(vector_t& q, vector_t& fvec) const {
 
+        q(0) = abs(q(0));
+
         trafo2d_t link_offset = trafo2d_t::Identity();
         link_offset.translation()(1) = 1.;
 
@@ -108,7 +110,6 @@ vector_t inverse_kinematics(const vector_t& q_start, const trafo2d_t& goal ) {
 }
 
 
-
 /**
  * An example how the inverse kinematics can be used.
  * It should not be required to change this code.
@@ -120,7 +121,6 @@ int main(){
     q_start.setConstant(-0.1);
     // q_start << -0.1, -M_PI / 6, -M_PI / 3;
 
-    
     trafo2d_t goal = trafo2d_t::Identity();
     // goal.translation()(0) = 1.;
 

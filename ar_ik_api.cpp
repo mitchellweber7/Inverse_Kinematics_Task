@@ -1,6 +1,7 @@
 #include "ar_ik_api.h"
 #include <iostream>
 #include <vector>
+#include <ctime>
 #include "matplotlibcpp.h"
 
 namespace plt = matplotlibcpp;
@@ -70,6 +71,10 @@ trafo2d_t ar_ik_api::forward_kinematics(const vector_t& q) {
 }
 
 vector_t ar_ik_api::inverse_kinematics(const vector_t& q_start, const trafo2d_t& goal) {
+    std::time_t start, end;
+    std::time(&start);
+    std::ios_base::sync_with_stdio(false);
+
     vector_t q = q_start;
     IkFunctor functor(goal.translation());
     Eigen::NumericalDiff<IkFunctor> numDiff(functor);
@@ -85,13 +90,14 @@ vector_t ar_ik_api::inverse_kinematics(const vector_t& q_start, const trafo2d_t&
         int ret = lm.minimizeOneStep(q);
         error = abs(lm.fvec(0)) + abs(lm.fvec(1));
         error_vec.push_back(error);
-        std::cout << "error: " << error << std::endl;
     }
 
     q(0) -= 2 * M_PI * std::floor((q(0) + M_PI) / (2 * M_PI));
     q(1) -= 2 * M_PI * std::floor((q(1) + M_PI) / (2 * M_PI));
     q(2) -= 2 * M_PI * std::floor((q(2) + M_PI) / (2 * M_PI));
 
+    std::time(&end);
+    solve_time = double(end - start);
 
     return q;
 }
@@ -100,13 +106,24 @@ void ar_ik_api::stats() {
     std::cout << "---------------------------------\nStats\n---------------------------------" << std::endl;
     std::cout << "Number of iterations: " << error_vec.size() << std::endl;
 
+    std::cout << "Error vector:" << std::endl;
+    std::vector<int> x;
+    for (auto err : error_vec)
+        std::cout << err << std::endl;
+}
+
+void ar_ik_api::graph_errors() {
     std::vector<int> x;
     for (int i = 0; i<error_vec.size(); i++)
-        x.push_back(i+1);
+        x.push_back(i + 1);
 
     plt::scatter(x, error_vec, 30);
     plt::title("Errors vs Iteration");
     plt::xlabel("iteration");
     plt::ylabel("norm (rad)");
     plt::show();
+}
+
+double ar_ik_api::time_taken() {
+    return solve_time;
 }
