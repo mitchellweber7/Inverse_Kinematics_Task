@@ -13,6 +13,8 @@ iostream
 -
 vector
 -
+ctime
+-
 matplotlibcpp.h
 /home/mitchell/Documents/Inverse_Kinematics_Task/matplotlibcpp.h
 
@@ -51,12 +53,6 @@ Python.h
 -
 numpy/arrayobject.h
 -
-
-/home/mitchell/Documents/Inverse_Kinematics_Task/user.cpp
-iostream
--
-ar_ik_api.h
-/home/mitchell/Documents/Inverse_Kinematics_Task/ar_ik_api.h
 
 /usr/include/python3.8/Python.h
 patchlevel.h
