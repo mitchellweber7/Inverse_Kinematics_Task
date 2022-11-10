@@ -25,7 +25,7 @@ int main(){
     std::cout << "Time taken: " << std::setprecision(20) << t << std::endl;
 
     ik_solver.stats();
-    ik_solver.graph_errors();
+    // ik_solver.graph_errors();
 
     return 0;
 }

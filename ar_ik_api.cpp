@@ -2,9 +2,9 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
-#include "matplotlibcpp.h"
+// #include "matplotlibcpp.h"
 
-namespace plt = matplotlibcpp;
+// namespace plt = matplotlibcpp;
 
 template<typename _Scalar, int NX = Eigen::Dynamic, int NY = Eigen::Dynamic>
 struct Functor
@@ -113,15 +113,15 @@ void ar_ik_api::stats() {
 }
 
 void ar_ik_api::graph_errors() {
-    std::vector<int> x;
-    for (int i = 0; i<error_vec.size(); i++)
-        x.push_back(i + 1);
+    // std::vector<int> x;
+    // for (int i = 0; i<error_vec.size(); i++)
+    //     x.push_back(i + 1);
 
-    plt::scatter(x, error_vec, 30);
-    plt::title("Errors vs Iteration");
-    plt::xlabel("iteration");
-    plt::ylabel("norm (rad)");
-    plt::show();
+    // plt::scatter(x, error_vec, 30);
+    // plt::title("Errors vs Iteration");
+    // plt::xlabel("iteration");
+    // plt::ylabel("norm (rad)");
+    // plt::show();
 }
 
 double ar_ik_api::time_taken() {

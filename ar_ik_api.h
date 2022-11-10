@@ -1,7 +1,7 @@
-#include "eigen3/Eigen/Dense"
-#include "eigen3/Eigen/Geometry"
-#include <eigen3/unsupported/Eigen/NonLinearOptimization>
-#include <eigen3/unsupported/Eigen/NumericalDiff>
+#include "Eigen/Dense"
+#include "Eigen/Geometry"
+#include <unsupported/Eigen/NonLinearOptimization>
+#include <unsupported/Eigen/NumericalDiff>
 
 typedef Eigen::VectorXd vector_t;
 typedef Eigen::MatrixXd matrix_t;
